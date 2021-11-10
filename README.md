@@ -1,5 +1,8 @@
 # Fitness_Tracker-X
 
+<style>H1{color:Green;}</style>
+<style>H2{color:Yellow;}</style>
+
 ## Description
 
 Application for tracking your workouts!
