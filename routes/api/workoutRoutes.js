@@ -4,14 +4,18 @@ const db = require("../../models");
 
 //* match fetch calls in api.js
 
-router.get("/api/workouts", (req, res) => {
-    
+router.get("/", (req, res) => {
+
 })
 
 
+router.get("/range", (req, res) => {
+
+})
+
 
 router.post("/", async (req, res) => {
-    Workout.create(body)
+    Workout.create(req.body)
     .then(dbWorkout => {
       res.json(dbWorkout);
     })
@@ -19,3 +23,15 @@ router.post("/", async (req, res) => {
       res.status(400).json(err);
     });
 });
+
+
+router.put("/:id", async (req, res) => {
+        if (req.body.name != "") {
+          const addWorkout = await db.Workout.findByIdAndUpdate(req.params.id, {
+            $push: { exercises: req.body },
+          });
+          res.json(addWorkout);
+        } else {
+          return;
+        }
+      });
