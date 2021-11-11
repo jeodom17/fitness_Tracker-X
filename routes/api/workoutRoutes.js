@@ -5,9 +5,15 @@ const db = require("../../models");
 //* match fetch calls in api.js
 
 router.get("/", (req, res) => {
-    Tweet.findOne({}, {}, { sort: { 'created_at' : -1 } }, function(err, post) {
-        console.log( post );
-      });
+    let workouts = await db.Workout.aggregate( [
+        {
+          $addFields: {
+            totalDuration: { $sum: "$exercises.totalDuration" } ,
+          }
+        },
+        
+     ] ).sort();
+     res.send(workouts);
 })
 
 
@@ -17,7 +23,7 @@ router.get("/range", (req, res) => {
 
 
 router.post("/", async (req, res) => {
-    Workout.create(req.body)
+    db.Workout.create(req.body)
     .then(dbWorkout => {
       res.json(dbWorkout);
     })
@@ -37,3 +43,4 @@ router.put("/:id", async (req, res) => {
           return;
         }
       });
+module.exports = router;
