@@ -8,6 +8,9 @@
 
 Application for tracking your workouts!
 
+![Screen Shot Fitness Tracker](./public/images/fitness-tracker-ss.png)
+
+![Screen Shot Dashboard](./public/images/dashboard-ss.png)
 ## Table of Contents
 
 - [Installation](#installation)
