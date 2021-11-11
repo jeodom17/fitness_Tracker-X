@@ -4,8 +4,8 @@ const db = require("../../models");
 
 //* match fetch calls in api.js
 
-router.get("/", (req, res) => {
-    let workouts = await db.Workout.aggregate( [
+router.get("/", async (req, res) => {
+    const workouts = await db.Workout.aggregate( [
         {
           $addFields: {
             totalDuration: { $sum: "$exercises.duration" } ,
@@ -17,7 +17,7 @@ router.get("/", (req, res) => {
 });
 
 
-router.get("/range", (req, res) => {
+router.get("/range", async (req, res) => {
     let workouts = await db.Workout.aggregate( [
         {
           $addFields: {
@@ -25,7 +25,8 @@ router.get("/range", (req, res) => {
           }
         },
         
-     ] ).sort({day: 1});
+     ] ).sort({day: 1})
+     .limit (7);
      res.send(workouts);
 });
 
@@ -52,4 +53,6 @@ router.put("/:id", async (req, res) => {
           return;
         }
       });
+
+
 module.exports = router;
