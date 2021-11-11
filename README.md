@@ -25,14 +25,14 @@ Application for tracking your workouts!
 
 ## Installation
 
-No installation required. Just go to [https://github.com/jeodom17/fitness_Tracker-X](https://github.com/jeodom17/fitness_Tracker-X) to use.
+No installation required. To use, go to: [https://github.com/jeodom17/fitness_Tracker-X](https://github.com/jeodom17/fitness_Tracker-X) 
 
 ## Features
 
 The Workout Tracker has the following features:
 
 - Create new workouts or add to the most recent one
-- Add 'Cardio' or 'Resistance' exercises with a variety of details
+- Add 'Cardio' or 'Resistance' exercises.
 - View graphs of the total duration and total weight lifted for the seven most recent workouts
 - All data stored in a remote MongoDB
 
@@ -45,7 +45,7 @@ The Workout Tracker has the following features:
 
 ## Credits
 
-Solo project for GATech Coding Bootcamp. Starter good for the UI was provided.
+Solo project for GATech Coding Bootcamp. Starter code for the UI was provided.
 by Justin Odom
 
 - [Github Page](https://github.com/jeodom17)
