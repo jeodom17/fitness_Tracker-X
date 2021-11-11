@@ -8,18 +8,27 @@ router.get("/", (req, res) => {
     let workouts = await db.Workout.aggregate( [
         {
           $addFields: {
-            totalDuration: { $sum: "$exercises.totalDuration" } ,
+            totalDuration: { $sum: "$exercises.duration" } ,
           }
         },
         
-     ] ).sort();
+     ] ).sort({day: 1});
      res.send(workouts);
-})
+});
 
 
 router.get("/range", (req, res) => {
+    let workouts = await db.Workout.aggregate( [
+        {
+          $addFields: {
+            totalDuration: { $sum: "$exercises.duration" } ,
+          }
+        },
+        
+     ] ).sort({day: 1});
+     res.send(workouts);
+});
 
-})
 
 
 router.post("/", async (req, res) => {
