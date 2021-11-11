@@ -5,7 +5,9 @@ const db = require("../../models");
 //* match fetch calls in api.js
 
 router.get("/", (req, res) => {
-
+    Tweet.findOne({}, {}, { sort: { 'created_at' : -1 } }, function(err, post) {
+        console.log( post );
+      });
 })
 
 
